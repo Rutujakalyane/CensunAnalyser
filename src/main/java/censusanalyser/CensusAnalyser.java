@@ -29,8 +29,7 @@ public class CensusAnalyser {
         } catch (RuntimeException e) {
             throw new CensusAnalyserException("Wrong delimeter", CensusAnalyserException.ExceptionType.WRONG_DELIMITER, e.getCause());
         }catch(Exception e) {
-            throw new CensusAnalyserException(e.getMessage(),
-                    CensusAnalyserException.ExceptionType.WRONG_HEADER_PROBLEM);
+            throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.WRONG_HEADER_PROBLEM);
         }
     }
     public int loadIndiaStateCodeData(String csvFilePath) throws CensusAnalyserException {
@@ -47,6 +46,10 @@ public class CensusAnalyser {
         } catch (IOException e) {
             throw new CensusAnalyserException(e.getMessage(),
                     CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
+        }catch (RuntimeException e) {
+            throw new CensusAnalyserException("Wrong delimeter", CensusAnalyserException.ExceptionType.WRONG_DELIMITER, e.getCause());
+        }catch(Exception e) {
+            throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.WRONG_HEADER_PROBLEM);
         }
     }
 
