@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.stream.StreamSupport;
 
 public class CensusAnalyser {
-    public int loadIndiaCensusData(String csvFilePath) throws CensusAnalyserException {
+    public int loadIndiaCensusData(String csvFilePath,char c,Class indiastatecensus) throws CensusAnalyserException {
         try {
             Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
             CsvToBeanBuilder<IndiaCensusCSV> csvToBeanBuilder = new CsvToBeanBuilder<>(reader);
@@ -20,7 +20,6 @@ public class CensusAnalyser {
             csvToBeanBuilder.withIgnoreLeadingWhiteSpace(true);
             CsvToBean<IndiaCensusCSV> csvToBean = csvToBeanBuilder.build();
             Iterator<IndiaCensusCSV> censusCSVIterator = csvToBean.iterator();
-            ;
             Iterable<IndiaCensusCSV> csvIterable = () -> censusCSVIterator;
             int namOfEateries = (int) StreamSupport.stream(csvIterable.spliterator(), false).count();
             return namOfEateries;
@@ -29,8 +28,12 @@ public class CensusAnalyser {
                     CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
         } catch (RuntimeException e) {
             throw new CensusAnalyserException("Wrong delimeter", CensusAnalyserException.ExceptionType.WRONG_DELIMITER, e.getCause());
+        }catch(Exception e) {
+            throw new CensusAnalyserException(e.getMessage(),
+                    CensusAnalyserException.ExceptionType.WRONG_HEADER_PROBLEM);
         }
     }
+
 }
 
 
