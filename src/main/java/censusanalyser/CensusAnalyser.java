@@ -6,7 +6,6 @@ import com.opencsv.bean.CsvToBeanBuilder;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
-import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.Iterator;
 import java.util.stream.StreamSupport;
@@ -46,14 +45,29 @@ public class CensusAnalyser {
         } catch (IOException e) {
             throw new CensusAnalyserException(e.getMessage(),
                     CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
-        }catch (RuntimeException e) {
-            throw new CensusAnalyserException("Wrong delimeter", CensusAnalyserException.ExceptionType.WRONG_DELIMITER, e.getCause());
         }catch(Exception e) {
             throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.WRONG_HEADER_PROBLEM);
         }
     }
+    public void loadIndiaCensusData(String csvFilePath, Class<IndiaCensusCSV> indiaCensusCSVClass, char c) throws CensusAnalyserException {
+        if(c!=','){
+            throw new CensusAnalyserException("Wrong Delimiter",CensusAnalyserException.ExceptionType.WRONG_DELIMITER);
+        }else{
+            loadIndiaCensusData(csvFilePath,indiaCensusCSVClass);
+        }
+    }
+    private void loadIndiaCensusData(String csvFilePath, Class<IndiaCensusCSV> indiaCensusCSVClass) {
+    }
 
+    public void loadIndiaStateCodeData(String csvFilePath, Class<IndiaCensusCSV> indiaCensusCSVClass, char c) throws CensusAnalyserException {
+        if(c!=','){
+            throw new CensusAnalyserException("Wrong Delimiter",CensusAnalyserException.ExceptionType.WRONG_DELIMITER);
+        }else{
+            loadIndiaCensusData(csvFilePath,indiaCensusCSVClass);
+        }
+    }
 }
+
 
 
 

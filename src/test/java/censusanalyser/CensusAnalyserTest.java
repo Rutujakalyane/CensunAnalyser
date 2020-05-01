@@ -2,7 +2,6 @@ package censusanalyser;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 public class CensusAnalyserTest {
 
@@ -43,12 +42,11 @@ public class CensusAnalyserTest {
     public void givenIndianCensusData_WithIncorrectDelimiter_Should_ReturnException() {
         try {
             CensusAnalyser censusAnalyser = new CensusAnalyser();
-            censusAnalyser.loadIndiaCensusData(INDIA_CENSUS_CSV_FILE_PATH);
+            censusAnalyser.loadIndiaCensusData(INDIA_CENSUS_CSV_FILE_PATH,IndiaCensusCSV.class,'.');
         } catch (CensusAnalyserException e) {
             Assert.assertEquals(CensusAnalyserException.ExceptionType.WRONG_DELIMITER, e.type);
         }
-    }
-    @Test //2.1
+    }@Test //2.1
     public void givenIndianStateCodeCSVFileReturnsCorrectRecords() {
         try {
             CensusAnalyser censusAnalyser = new CensusAnalyser();
@@ -69,7 +67,7 @@ public class CensusAnalyserTest {
     public void givenStateCode_WithWrongFileType_Should_ReturnException() {
         try {
             CensusAnalyser censusAnalyser = new CensusAnalyser();
-            censusAnalyser.loadIndiaStateCodeData(WRONG_STATE_CODE_CSV_FILE_TYPE );
+            censusAnalyser.loadIndiaStateCodeData(WRONG_STATE_CODE_CSV_FILE_TYPE);
         } catch (CensusAnalyserException e) {
             Assert.assertEquals( CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM, e.type );
         }
@@ -78,11 +76,12 @@ public class CensusAnalyserTest {
     public void givenStateCode_WithIncorrectDelimiter_Should_ReturnException() {
         try {
             CensusAnalyser censusAnalyser = new CensusAnalyser();
-            censusAnalyser.loadIndiaStateCodeData(INDIA_CENSUS_CSV_FILE_PATH);
+            censusAnalyser.loadIndiaStateCodeData(INDIA_STATE_CODE_CSV_FILE_PATH,IndiaCensusCSV.class,'.');
         } catch (CensusAnalyserException e) {
             Assert.assertEquals(CensusAnalyserException.ExceptionType.WRONG_DELIMITER, e.type);
         }
     }
+
 
 
 
