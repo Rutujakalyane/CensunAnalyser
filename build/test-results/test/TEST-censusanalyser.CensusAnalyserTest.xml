@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="censusanalyser.CensusAnalyserTest" tests="10" skipped="0" failures="4" errors="0" timestamp="2020-05-02T18:09:51" hostname="DESKTOP-PF8MVFB" time="0.431">
+<testsuite name="censusanalyser.CensusAnalyserTest" tests="10" skipped="0" failures="4" errors="0" timestamp="2020-05-03T07:18:29" hostname="DESKTOP-PF8MVFB" time="0.222">
   <properties/>
-  <testcase name="givenIndianCensusData_WithIncorrectDelimiter_Should_ReturnException" classname="censusanalyser.CensusAnalyserTest" time="0.01">
+  <testcase name="givenIndianCensusData_WithIncorrectDelimiter_Should_ReturnException" classname="censusanalyser.CensusAnalyserTest" time="0.009">
     <failure message="java.lang.AssertionError: expected:&lt;WRONG_DELIMITER&gt; but was:&lt;CENSUS_FILE_PROBLEM&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;WRONG_DELIMITER&gt; but was:&lt;CENSUS_FILE_PROBLEM&gt;
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -57,7 +57,7 @@
 	at java.lang.Thread.run(Thread.java:745)
 </failure>
   </testcase>
-  <testcase name="givenIndianCensusData_WithWrongFileType_Should_ReturnException" classname="censusanalyser.CensusAnalyserTest" time="0.0"/>
+  <testcase name="givenIndianCensusData_WithWrongFileType_Should_ReturnException" classname="censusanalyser.CensusAnalyserTest" time="0.001"/>
   <testcase name="givenIndiaStateCensusData_WithWrongHeader_ShouldThrowException" classname="censusanalyser.CensusAnalyserTest" time="0.0">
     <failure message="java.lang.AssertionError: expected:&lt;WRONG_HEADER_PROBLEM&gt; but was:&lt;CENSUS_FILE_PROBLEM&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;WRONG_HEADER_PROBLEM&gt; but was:&lt;CENSUS_FILE_PROBLEM&gt;
 	at org.junit.Assert.fail(Assert.java:88)
@@ -114,11 +114,11 @@
 	at java.lang.Thread.run(Thread.java:745)
 </failure>
   </testcase>
-  <testcase name="givenIndianCensusCSVFileReturnsCorrectRecords" classname="censusanalyser.CensusAnalyserTest" time="0.393"/>
-  <testcase name="givenIndianStateCodeCSVFileReturnsCorrectRecords" classname="censusanalyser.CensusAnalyserTest" time="0.022"/>
+  <testcase name="givenIndianCensusCSVFileReturnsCorrectRecords" classname="censusanalyser.CensusAnalyserTest" time="0.19"/>
+  <testcase name="givenIndianStateCodeCSVFileReturnsCorrectRecords" classname="censusanalyser.CensusAnalyserTest" time="0.019"/>
   <testcase name="givenStateCode_WithWrongFileType_Should_ReturnException" classname="censusanalyser.CensusAnalyserTest" time="0.0"/>
   <testcase name="givenIndiaCensusData_WithWrongFile_ShouldThrowException" classname="censusanalyser.CensusAnalyserTest" time="0.0"/>
-  <testcase name="givenIndianStateCodeData_WithWrongFile_ShouldThrowException" classname="censusanalyser.CensusAnalyserTest" time="0.001"/>
+  <testcase name="givenIndianStateCodeData_WithWrongFile_ShouldThrowException" classname="censusanalyser.CensusAnalyserTest" time="0.0"/>
   <testcase name="givenIndiaStateCodeData_WithWrongHeader_ShouldThrowException" classname="censusanalyser.CensusAnalyserTest" time="0.001">
     <failure message="java.lang.AssertionError: expected:&lt;WRONG_HEADER_PROBLEM&gt; but was:&lt;CENSUS_FILE_PROBLEM&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;WRONG_HEADER_PROBLEM&gt; but was:&lt;CENSUS_FILE_PROBLEM&gt;
 	at org.junit.Assert.fail(Assert.java:88)
@@ -232,5 +232,45 @@
 </failure>
   </testcase>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+  <system-err><![CDATA[Exception in thread "pool-2-thread-3" java.lang.RuntimeException: java.lang.NullPointerException
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:96)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at com.opencsv.bean.HeaderColumnNameMappingStrategy.verifyLineLength(HeaderColumnNameMappingStrategy.java:139)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:122)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:82)
+	... 3 more
+Exception in thread "pool-2-thread-4" java.lang.RuntimeException: java.lang.NullPointerException
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:96)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at com.opencsv.bean.HeaderColumnNameMappingStrategy.verifyLineLength(HeaderColumnNameMappingStrategy.java:139)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:122)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:82)
+	... 3 more
+Exception in thread "pool-2-thread-2" java.lang.RuntimeException: java.lang.NullPointerException
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:96)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at com.opencsv.bean.HeaderColumnNameMappingStrategy.verifyLineLength(HeaderColumnNameMappingStrategy.java:139)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:122)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:82)
+	... 3 more
+Exception in thread "pool-2-thread-1" java.lang.RuntimeException: java.lang.NullPointerException
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:96)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at com.opencsv.bean.HeaderColumnNameMappingStrategy.verifyLineLength(HeaderColumnNameMappingStrategy.java:139)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:122)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:82)
+	... 3 more
+]]></system-err>
 </testsuite>
