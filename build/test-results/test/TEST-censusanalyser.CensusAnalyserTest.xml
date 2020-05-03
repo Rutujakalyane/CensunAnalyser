@@ -1,16 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="censusanalyser.CensusAnalyserTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2020-05-03T10:55:44" hostname="DESKTOP-PF8MVFB" time="0.332">
+<testsuite name="censusanalyser.CensusAnalyserTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2020-05-03T14:43:22" hostname="DESKTOP-PF8MVFB" time="0.691">
   <properties/>
-  <testcase name="givenIndianCensusData_WithIncorrectDelimiter_Should_ReturnException" classname="censusanalyser.CensusAnalyserTest" time="0.2"/>
+  <testcase name="givenIndianCensusData_WithIncorrectDelimiter_Should_ReturnException" classname="censusanalyser.CensusAnalyserTest" time="0.232"/>
   <testcase name="givenIndianCensusData_WithWrongFileType_Should_ReturnException" classname="censusanalyser.CensusAnalyserTest" time="0.003"/>
-  <testcase name="givenIndiaStateCensusData_WithWrongHeader_ShouldThrowException" classname="censusanalyser.CensusAnalyserTest" time="0.004"/>
-  <testcase name="givenIndianCensusCSVFileReturnsCorrectRecords" classname="censusanalyser.CensusAnalyserTest" time="0.056"/>
-  <testcase name="givenIndianStateCodeCSVFileReturnsCorrectRecords" classname="censusanalyser.CensusAnalyserTest" time="0.008"/>
+  <testcase name="givenIndiaStateCensusData_WithWrongHeader_ShouldThrowException" classname="censusanalyser.CensusAnalyserTest" time="0.053"/>
+  <testcase name="givenIndianCensusCSVFileReturnsCorrectRecords" classname="censusanalyser.CensusAnalyserTest" time="0.041"/>
+  <testcase name="givenIndianCensusData_WhenSortedOnState_ShouldReturnSortedResult" classname="censusanalyser.CensusAnalyserTest" time="0.258"/>
+  <testcase name="givenIndianStateCodeCSVFileReturnsCorrectRecords" classname="censusanalyser.CensusAnalyserTest" time="0.041"/>
   <testcase name="givenStateCode_WithWrongFileType_Should_ReturnException" classname="censusanalyser.CensusAnalyserTest" time="0.001"/>
-  <testcase name="givenIndiaCensusData_WithWrongFile_ShouldThrowException" classname="censusanalyser.CensusAnalyserTest" time="0.0"/>
+  <testcase name="givenIndiaCensusData_WithWrongFile_ShouldThrowException" classname="censusanalyser.CensusAnalyserTest" time="0.001"/>
   <testcase name="givenIndianStateCodeData_WithWrongFile_ShouldThrowException" classname="censusanalyser.CensusAnalyserTest" time="0.001"/>
-  <testcase name="givenIndiaStateCodeData_WithWrongHeader_ShouldThrowException" classname="censusanalyser.CensusAnalyserTest" time="0.038"/>
-  <testcase name="givenStateCode_WithIncorrectDelimiter_Should_ReturnException" classname="censusanalyser.CensusAnalyserTest" time="0.016"/>
+  <testcase name="givenIndiaStateCodeData_WithWrongHeader_ShouldThrowException" classname="censusanalyser.CensusAnalyserTest" time="0.04"/>
+  <testcase name="givenStateCode_WithIncorrectDelimiter_Should_ReturnException" classname="censusanalyser.CensusAnalyserTest" time="0.015"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+  <system-err><![CDATA[Exception in thread "pool-5-thread-4" java.lang.RuntimeException: java.lang.NullPointerException
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:96)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at com.opencsv.bean.HeaderColumnNameMappingStrategy.verifyLineLength(HeaderColumnNameMappingStrategy.java:139)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:122)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:82)
+	... 3 more
+Exception in thread "pool-5-thread-1" java.lang.RuntimeException: java.lang.NullPointerException
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:96)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at com.opencsv.bean.HeaderColumnNameMappingStrategy.verifyLineLength(HeaderColumnNameMappingStrategy.java:139)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:122)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:82)
+	... 3 more
+Exception in thread "pool-5-thread-3" java.lang.RuntimeException: java.lang.NullPointerException
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:96)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at com.opencsv.bean.HeaderColumnNameMappingStrategy.verifyLineLength(HeaderColumnNameMappingStrategy.java:139)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:122)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:82)
+	... 3 more
+]]></system-err>
 </testsuite>
