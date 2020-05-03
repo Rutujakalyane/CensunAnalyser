@@ -13,6 +13,39 @@ import java.util.stream.StreamSupport;
 
 public class CensusAnalyser {
     public int loadIndiaCensusData(String csvFilePath) throws CensusAnalyserException {
+    try {
+        Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
+        ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
+        Iterator<IndiaCensusCSV> censusCSVIterator = csvBuilder.getCSVFileIterator(reader,IndiaCensusCSV.class);
+        return getCount(censusCSVIterator);
+    } catch (IOException e) {
+        throw new CensusAnalyserException(e.getMessage(),
+                CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
+    } catch (CSVBuilderException e) {
+        throw new CensusAnalyserException(e.getMessage(),e.type.name());
+    }
+}
+
+    public int loadIndiaStateCode(String csvFilePath) throws CensusAnalyserException {
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
+            ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
+            Iterator<CSVStates> censusCSVIterator = csvBuilder.getCSVFileIterator(reader,CSVStates.class);
+            return getCount(censusCSVIterator);
+        }catch (IOException e) {
+            throw new CensusAnalyserException(e.getMessage(),
+                    CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
+        } catch (CSVBuilderException e) {
+            throw new CensusAnalyserException(e.getMessage(),e.type.name());
+        }
+    }
+
+    public <E> int getCount(Iterator<E> censusCSVIterator) {
+        Iterable<E> csvIterable = () -> censusCSVIterator;
+        return (int) StreamSupport.stream(csvIterable.spliterator(), false).count();
+    }
+}
+   /* public int loadIndiaCensusData(String csvFilePath) throws CensusAnalyserException {
         try {
             Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
             ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
@@ -43,11 +76,8 @@ public class CensusAnalyser {
 
     }
 
-    public <E> int getCount(Iterator<E> censusCSVIterator) {
-        Iterable<E> csvIterable = () -> censusCSVIterator;
-        return (int) StreamSupport.stream(csvIterable.spliterator(), false).count();
-    }
 
-}
+
+}*/
 
 
