@@ -8,16 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class OpenCSVBuilder implements ICSVBuilder {
-        @Override
-    public Iterator getCSVFileIterator(Reader reader, Class csvStatesClass){
-        try{
-            return getCsvToBean(reader,csvStatesClass).iterator();
-    }catch (Exception e){
-        throw new CSVBuilderException(e.getMessage(),CSVBuilderException.ExceptionType.WRONG_HEADER_PROBLEM);
-    }
-}
-
-        @Override
+    @Override
         public List getCSVFileList(Reader reader, Class className) {
             try{
                 return getCsvToBean(reader,className).parse();
