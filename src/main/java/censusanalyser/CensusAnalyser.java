@@ -58,13 +58,31 @@ public class CensusAnalyser <E>{
         String json = new Gson().toJson(censusCSVList);
         return json;
     }
-    public String getStateCodeAndPopulationWiseSortedCensusData() throws CensusAnalyserException {
+    public String getStateCodeWiseSortedCensusData() throws CensusAnalyserException {
         if(censusStateList == null || censusStateList.size()==0){
             throw new CensusAnalyserException("No Census Data",CensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
         }
         Comparator<CSVStates> comparing = Comparator.comparing(census -> census.stateCode);
         this.sortStates(comparing);
         String json = new Gson().toJson(censusStateList);
+        return json;
+    }
+    public String getPopulationWiseSortedCensusData() throws CensusAnalyserException {
+        if(censusCSVList == null || censusCSVList.size()==0){
+            throw new CensusAnalyserException("No Census Data",CensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
+        }
+        Comparator<IndiaCensusCSV> comparing = Comparator.comparing(census -> census.population);
+        this.sort(comparing);
+        String json = new Gson().toJson(censusCSVList);
+        return json;
+    }
+    public String getPopulationDensityWiseSortedCensusData() throws CensusAnalyserException {
+        if(censusCSVList == null || censusCSVList.size()==0){
+            throw new CensusAnalyserException("No Census Data",CensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
+        }
+        Comparator<IndiaCensusCSV> comparing = Comparator.comparing(census -> census.densityPerSqKm);
+        this.sort(comparing);
+        String json = new Gson().toJson(censusCSVList);
         return json;
     }
     private void sortStates(Comparator<CSVStates> comparing) {
