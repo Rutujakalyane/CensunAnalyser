@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">13</div>
+<div class="counter">15</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">2.513s</div>
+<div class="counter">2.615s</div>
 <p>duration</p>
 </div>
 </td>
@@ -84,37 +84,47 @@
 </tr>
 <tr>
 <td class="success">givenIndiaStateCensusData_WithWrongHeader_ShouldThrowException</td>
-<td class="success">0.107s</td>
+<td class="success">0.255s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenIndiaStateCodeData_WithWrongHeader_ShouldThrowException</td>
-<td class="success">0.083s</td>
+<td class="success">0.032s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenIndianCensusCSVFileReturnsCorrectRecords</td>
-<td class="success">0.063s</td>
+<td class="success">0.036s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenIndianCensusData_WhenSortedOnArea_ShouldReturnSortedResult</td>
+<td class="success">0.741s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenIndianCensusData_WhenSortedOnPopulationDensity_ShouldReturnSortedResult</td>
+<td class="success">0.059s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenIndianCensusData_WhenSortedOnPopulation_ShouldReturnSortedResult</td>
-<td class="success">0.623s</td>
+<td class="success">0.063s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenIndianCensusData_WhenSortedOnStateCode_ShouldReturnSortedResult</td>
-<td class="success">0.148s</td>
+<td class="success">0.101s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenIndianCensusData_WhenSortedOnState_ShouldReturnSortedResult</td>
-<td class="success">0.061s</td>
+<td class="success">0.035s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenIndianCensusData_WithIncorrectDelimiter_Should_ReturnException</td>
-<td class="success">1.347s</td>
+<td class="success">1.184s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -124,22 +134,22 @@
 </tr>
 <tr>
 <td class="success">givenIndianStateCodeCSVFileReturnsCorrectRecords</td>
-<td class="success">0.016s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenIndianStateCodeData_WithWrongFile_ShouldThrowException</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenStateCode_WithIncorrectDelimiter_Should_ReturnException</td>
-<td class="success">0.055s</td>
+<td class="success">0.098s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenStateCode_WithWrongFileType_Should_ReturnException</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -147,7 +157,7 @@
 <div id="tab1" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>Exception in thread &quot;pool-4-thread-1&quot; java.lang.RuntimeException: java.lang.NullPointerException
+<pre>Exception in thread &quot;pool-5-thread-3&quot; java.lang.RuntimeException: java.lang.NullPointerException
 	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:96)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
@@ -157,7 +167,47 @@ Caused by: java.lang.NullPointerException
 	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:122)
 	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:82)
 	... 3 more
-Exception in thread &quot;pool-7-thread-1&quot; java.lang.RuntimeException: java.lang.NullPointerException
+Exception in thread &quot;pool-5-thread-1&quot; java.lang.RuntimeException: java.lang.NullPointerException
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:96)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at com.opencsv.bean.HeaderColumnNameMappingStrategy.verifyLineLength(HeaderColumnNameMappingStrategy.java:139)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:122)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:82)
+	... 3 more
+Exception in thread &quot;pool-5-thread-4&quot; java.lang.RuntimeException: java.lang.NullPointerException
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:96)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at com.opencsv.bean.HeaderColumnNameMappingStrategy.verifyLineLength(HeaderColumnNameMappingStrategy.java:139)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:122)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:82)
+	... 3 more
+Exception in thread &quot;pool-5-thread-2&quot; java.lang.RuntimeException: java.lang.NullPointerException
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:96)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at com.opencsv.bean.HeaderColumnNameMappingStrategy.verifyLineLength(HeaderColumnNameMappingStrategy.java:139)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:122)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:82)
+	... 3 more
+Exception in thread &quot;pool-8-thread-1&quot; java.lang.RuntimeException: java.lang.NullPointerException
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:96)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at com.opencsv.bean.HeaderColumnNameMappingStrategy.verifyLineLength(HeaderColumnNameMappingStrategy.java:139)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:122)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:82)
+	... 3 more
+Exception in thread &quot;pool-8-thread-2&quot; java.lang.RuntimeException: java.lang.NullPointerException
 	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:96)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
@@ -178,7 +228,7 @@ Caused by: java.lang.NullPointerException
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.2.1</a> at May 7, 2020 3:53:48 PM</p>
+<a href="http://www.gradle.org">Gradle 5.2.1</a> at May 7, 2020 6:11:01 PM</p>
 </div>
 </div>
 </body>
