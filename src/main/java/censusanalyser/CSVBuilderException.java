@@ -2,7 +2,7 @@ package censusanalyser;
 
 public class CSVBuilderException extends RuntimeException {
     enum ExceptionType {
-         WRONG_DELIMITER, WRONG_HEADER_PROBLEM;
+         WRONG_DELIMITER, WRONG_HEADER_PROBLEM,CENSUS_FILE_PROBLEM;
     }
     CSVBuilderException.ExceptionType type;
 
