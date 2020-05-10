@@ -17,17 +17,6 @@ public class OpenCSVBuilder <E> implements ICSVBuilder {
             throw new CSVBuilderException(e.getMessage(),CSVBuilderException.ExceptionType.WRONG_DELIMITER);
         }
     }
-
-    @Override
-        public List getCSVFileList(Reader reader, Class className) {
-            try{
-                return getCsvToBean(reader,className).parse();
-            }catch (RuntimeException e){
-                throw new CSVBuilderException(e.getMessage(),CSVBuilderException.ExceptionType.WRONG_DELIMITER);
-            }
-        }
-
-
     private <E> CsvToBean getCsvToBean(Reader reader, Class className) throws CSVBuilderException{
         try {
             CsvToBeanBuilder<E> csvToBeanBuilder = new CsvToBeanBuilder( reader );
