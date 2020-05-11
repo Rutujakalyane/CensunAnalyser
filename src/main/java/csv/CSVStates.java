@@ -1,8 +1,8 @@
-package censusanalyser.CSV;
+package csv;
 
 import com.opencsv.bean.CsvBindByName;
 
-public class CSVStates {
+public class CSVStates<E> {
     @CsvBindByName(column = "State Name", required = true)
     public String state;
 

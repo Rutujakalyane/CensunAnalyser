@@ -1,10 +1,10 @@
-package censusanalyser;
+package exception;
 
 public class CSVBuilderException extends RuntimeException {
-    enum ExceptionType {
+    public enum ExceptionType {
          WRONG_DELIMITER, WRONG_HEADER_PROBLEM,CENSUS_FILE_PROBLEM;
     }
-    CSVBuilderException.ExceptionType type;
+    public ExceptionType type;
 
     public CSVBuilderException(String message, CSVBuilderException.ExceptionType type) {
         super(message);

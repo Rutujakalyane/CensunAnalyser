@@ -1,7 +1,7 @@
 package censusanalyser;
-import censusanalyser.CSV.CSVStates;
-import censusanalyser.CSV.IndiaCensusCSV;
-import censusanalyser.CSV.USCensusCSV;
+import csv.CSVStates;
+import csv.IndiaCensusCSV;
+import csv.USCensusCSV;
 
 
 public class IndiaCensusDAO {

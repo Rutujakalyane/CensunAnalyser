@@ -2,11 +2,10 @@ package censusanalyser;
 
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
+import exception.CSVBuilderException;
+
 import java.io.Reader;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 
 public class OpenCSVBuilder <E> implements ICSVBuilder {
     @Override

@@ -1,8 +1,8 @@
-package censusanalyser.CSV;
+package csv;
 
 import com.opencsv.bean.CsvBindByName;
 
-public class USCensusCSV {
+public class USCensusCSV<E> {
         @CsvBindByName(column = "State", required = true)
         public String state;
 
@@ -18,9 +18,9 @@ public class USCensusCSV {
         @CsvBindByName(column = "PopulationDensity", required = true)
         public double populationDensity;
 
-    @Override
-    public String toString() {
-        return "USCensusCSV{" +
+        @Override
+        public String toString() {
+            return "USCensusCSV{" +
                 "State='" + state + '\'' +
                 "State ID='" + stateId + '\'' +
                 ", Population='" + population + '\'' +
@@ -28,4 +28,5 @@ public class USCensusCSV {
                 ", PopulationDensity='" + populationDensity + '\'' +
                 '}';
     }
+
 }
