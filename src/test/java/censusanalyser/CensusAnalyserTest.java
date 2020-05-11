@@ -159,12 +159,14 @@ public class CensusAnalyserTest {
         }
     }
     @Test
-    public void givenUSCensusCSVFile_ReturnsCorrectRecords() {
+    public void givenUSCensusCSVFileReturnsCorrectRecords() {
         try {
             CensusAnalyser censusAnalyser = new CensusAnalyser();
             int numOfRecords = censusAnalyser.loadUSCensusData(US_CSV_FILE_PATH);
             Assert.assertEquals(52,numOfRecords);
-        } catch (CensusAnalyserException e) { }
+        } catch (CensusAnalyserException e) {
+            
+        }
     }
 
 
