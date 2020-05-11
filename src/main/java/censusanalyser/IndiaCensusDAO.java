@@ -1,8 +1,9 @@
 package censusanalyser;
-import censusanalyser.CSV.CSVStates;
-import censusanalyser.CSV.IndiaCensusCSV;
-import censusanalyser.CSV.USCensusCSV;
 
+
+import csv.CSVStates;
+import csv.IndiaCensusCSV;
+import csv.USCensusCSV;
 
 public class IndiaCensusDAO {
     public double density;
@@ -30,7 +31,6 @@ public class IndiaCensusDAO {
         this.state = census.state;
         this.stateId = census.stateId;
         this.area=census.totalArea;
-        this.population=census.population;
         this.density=census.populationDensity;
     }
 

@@ -1,8 +1,10 @@
 package censusanalyser;
 
-import censusanalyser.CSV.CSVStates;
-import censusanalyser.CSV.IndiaCensusCSV;
+import SERVICES.CensusAnalyser;
 import com.google.gson.Gson;
+import csv.CSVStates;
+import csv.IndiaCensusCSV;
+import exception.CensusAnalyserException;
 import org.junit.Assert;
 import org.junit.Test;
 

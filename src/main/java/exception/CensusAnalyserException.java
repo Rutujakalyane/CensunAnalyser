@@ -1,12 +1,12 @@
-package censusanalyser;
+package exception;
 
 public class CensusAnalyserException extends Exception {
 
-    enum ExceptionType {
+    public enum ExceptionType {
         CENSUS_FILE_PROBLEM,WRONG_DELIMITER,WRONG_HEADER_PROBLEM,NO_CENSUS_DATA;
     }
 
-    ExceptionType type;
+    public ExceptionType type;
 
     public CensusAnalyserException(String message, String name) {
         super(message);
