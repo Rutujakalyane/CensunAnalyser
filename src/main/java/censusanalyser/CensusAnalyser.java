@@ -13,7 +13,7 @@ import java.util.*;
 import java.util.stream.StreamSupport;
 
     public class CensusAnalyser {
-        Map<String,IndiaCensusDAO> censusCSVMap=null;
+        Map<String,IndiaCensusDAO> censusCSVMap;
         List<IndiaCensusDAO> censusCSVList = null;
         List<IndiaCensusDAO> stateCSVList = null;
         public CensusAnalyser(){
@@ -100,13 +100,13 @@ import java.util.stream.StreamSupport;
             return json(censusCSVList);
         }
         private void sortDescending(Comparator comparing, List list) {
-            for (int i = 0; i < censusCSVList.size() - 1; i++) {
-                for (int j = 0; j < censusCSVList.size() - i - 1; j++) {
-                    IndiaCensusDAO census1 = censusCSVList.get(j);
-                    IndiaCensusDAO census2 = censusCSVList.get(j + 1);
+            for (int i = 0; i < this.censusCSVList.size() - 1; i++) {
+                for (int j = 0; j < this.censusCSVList.size() - i - 1; j++) {
+                    IndiaCensusDAO census1 = this.censusCSVList.get(j);
+                    IndiaCensusDAO census2 = this.censusCSVList.get(j + 1);
                     if (comparing.compare(census1, census2) < 0) {
-                        censusCSVList.set(j, census2);
-                        censusCSVList.set(j + 1, census1);
+                        this.censusCSVList.set(j, census2);
+                        this.censusCSVList.set(j + 1, census1);
                     }
                 }
             }
