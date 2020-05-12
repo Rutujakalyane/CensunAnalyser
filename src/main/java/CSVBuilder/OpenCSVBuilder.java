@@ -1,8 +1,10 @@
+
+
 package CSVBuilder;
 
+import exception.CSVBuilderException;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
-import exception.CSVBuilderException;
 
 import java.io.Reader;
 import java.util.Iterator;

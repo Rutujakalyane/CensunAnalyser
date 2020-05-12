@@ -3,6 +3,8 @@ package csv;
 import com.opencsv.bean.CsvBindByName;
 
 public class CSVStates<E> {
+
+
     @CsvBindByName(column = "State Name", required = true)
     public String state;
 

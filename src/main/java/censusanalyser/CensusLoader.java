@@ -19,6 +19,7 @@ import java.util.stream.StreamSupport;
 
 public class CensusLoader<T> {
     public <E> Map<String, IndiaCensusDAO> loadCensusData(Class<E> censusCSVClass, String... csvFilePath) throws CensusAnalyserException {
+
        Map<String, IndiaCensusDAO> censusCSVMap = new HashedMap();
        try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath[0]));) {
            ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
@@ -42,7 +43,8 @@ public class CensusLoader<T> {
                    CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
        }
    }
-   public Map<String, IndiaCensusDAO> loadCensusData(Map<String, IndiaCensusDAO> censusStateMap, String indiaCodeCsvFilePath) throws CensusAnalyserException {
+  
+    public Map<String, IndiaCensusDAO> loadCensusData(Map<String, IndiaCensusDAO> censusStateMap, String indiaCodeCsvFilePath) throws CensusAnalyserException {
         try (Reader reader = Files.newBufferedReader(Paths.get(indiaCodeCsvFilePath));) {
             ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
             Iterator<CSVStates> stateCSVIterator = csvBuilder.getCSVFileIterator(reader, CSVStates.class);
@@ -58,6 +60,13 @@ public class CensusLoader<T> {
         throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.WRONG_HEADER_PROBLEM);
     }
 }
+        } catch (IOException e) {
+            throw new CensusAnalyserException(e.getMessage(),
+                    CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
+        }  catch (Exception e) {
+            throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.WRONG_HEADER_PROBLEM);
+        }
+    }
 
 
 }

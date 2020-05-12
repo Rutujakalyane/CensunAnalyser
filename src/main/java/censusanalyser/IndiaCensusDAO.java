@@ -1,8 +1,8 @@
 package censusanalyser;
+
 import csv.CSVStates;
 import csv.IndiaCensusCSV;
 import csv.USCensusCSV;
-
 
 public class IndiaCensusDAO {
     public double density;
