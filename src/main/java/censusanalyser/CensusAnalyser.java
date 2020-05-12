@@ -12,40 +12,25 @@ public class CensusAnalyser {
     List<IndiaCensusDAO> censusCSVList = null;
     List<IndiaCensusDAO> stateCSVList = null;
 
-    public int loadIndiaCensusData(String csvFilePath) throws CensusAnalyserException {
-        censusCSVMap = new CensusLoader().loadCensusData(csvFilePath, IndiaCensusCSV.class);
+    /*public int loadIndiaCensusData(String csvFilePath) throws CensusAnalyserException {
+        censusCSVMap = new CensusLoader().loadCensusData(IndiaCensusCSV.class, csvFilePath);
         return censusCSVMap.size();
     }
     public int loadUSCensusData(String csvFilePath) throws CensusAnalyserException {
-        censusCSVMap= new CensusLoader().loadCensusData(csvFilePath, USCensusCSV.class);
+        censusCSVMap= new CensusLoader().loadCensusData(USCensusCSV.class, csvFilePath);
+        return censusCSVMap.size();
+    }*/
+    public int loadIndiaCensusData(String... csvFilePath) throws CensusAnalyserException {
+        censusCSVMap = new CensusLoader().loadCensusData(IndiaCensusCSV.class, csvFilePath);
         return censusCSVMap.size();
     }
-    public int loadIndiaStateCodeData(String csvFilePath) throws CensusAnalyserException {
-        censusCSVMap = new CensusLoader().loadCensusData(csvFilePath, IndiaCensusCSV.class);
+
+    public int loadUSCensusData(String... csvFilePath) throws CensusAnalyserException {
+        censusCSVMap = new CensusLoader().loadCensusData(USCensusCSV.class, csvFilePath);
         return censusCSVMap.size();
     }
-        /*public int loadIndiaCensusData(String csvFilePath) throws CensusAnalyserException {
-            censusCSVMap = new CensusLoader().loadCensusData(csvFilePath, IndiaCensusCSV.class);
-            return censusCSVMap.size();
-        }
-        public int loadUSCensusData(String csvFilePath) throws CensusAnalyserException {
-            censusCSVMap = new CensusLoader().loadCensusData(csvFilePath, IndiaCensusCSV.class);
-            return censusCSVMap.size();
-        }
-        public int loadIndiaStateCodeData(String csvFilePath) throws CensusAnalyserException {
-            censusCSVMap = new CensusLoader().loadCensusData(csvFilePath, IndiaCensusCSV.class);
-            return censusCSVMap.size();
-        }
-
-        private int loadCensusData(String csvFilePath, Class<CSVStates> csvStatesClass) {
-            return 0;
-        }*/
 
 
-        /* public <E> int getCount(Iterator<E> censusCSVIterator) {
-              Iterable<E> csvIterable = () -> censusCSVIterator;
-              return (int) StreamSupport.stream(csvIterable.spliterator(), false).count();
-          }*/
         public void isNull(List list) throws CensusAnalyserException {
             if (list == null || list.size() == 0) {
                 throw new CensusAnalyserException("No Census Data", CensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
