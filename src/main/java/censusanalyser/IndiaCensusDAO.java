@@ -6,7 +6,6 @@ import csv.USCensusCSV;
 
 public class IndiaCensusDAO {
     public double density;
-    public double area;
     public String stateId;
     public String stateCode;
     public int population;
@@ -29,7 +28,7 @@ public class IndiaCensusDAO {
     public IndiaCensusDAO(USCensusCSV census) {
         this.state = census.state;
         this.stateId = census.stateId;
-        this.area=census.totalArea;
+        areaInSqKm = census.areaInSqKm;
         this.population=census.population;
         this.density=census.populationDensity;
     }
