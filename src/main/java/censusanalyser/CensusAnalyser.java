@@ -12,14 +12,7 @@ public class CensusAnalyser {
     List<IndiaCensusDAO> censusCSVList = null;
     List<IndiaCensusDAO> stateCSVList = null;
 
-    /*public int loadIndiaCensusData(String csvFilePath) throws CensusAnalyserException {
-        censusCSVMap = new CensusLoader().loadCensusData(IndiaCensusCSV.class, csvFilePath);
-        return censusCSVMap.size();
-    }
-    public int loadUSCensusData(String csvFilePath) throws CensusAnalyserException {
-        censusCSVMap= new CensusLoader().loadCensusData(USCensusCSV.class, csvFilePath);
-        return censusCSVMap.size();
-    }*/
+
     public int loadIndiaCensusData(String... csvFilePath) throws CensusAnalyserException {
         censusCSVMap = new CensusLoader().loadCensusData(IndiaCensusCSV.class, csvFilePath);
         return censusCSVMap.size();

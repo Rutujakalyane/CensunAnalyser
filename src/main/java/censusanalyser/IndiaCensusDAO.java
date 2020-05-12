@@ -20,11 +20,6 @@ public class IndiaCensusDAO {
         population = indiaCensusCSV.population;
     }
 
-    public IndiaCensusDAO(CSVStates indiaCensusCSV ) {
-        state=indiaCensusCSV.state;
-        stateCode=indiaCensusCSV.stateCode;
-    }
-
     public IndiaCensusDAO(USCensusCSV census) {
         this.state = census.state;
         this.stateId = census.stateId;
