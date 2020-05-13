@@ -1,11 +1,4 @@
 package CSVBuilder;
-
-<<<<<<< HEAD:src/main/java/SERVICES/OpenCSVBuilder.java
-package SERVICES;
-=======
-package CSVBuilder;
->>>>>>> UC8-USCensusData:src/main/java/CSVBuilder/OpenCSVBuilder.java
-
 import exception.CSVBuilderException;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
