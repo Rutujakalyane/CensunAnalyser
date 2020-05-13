@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.stream.StreamSupport;
 
 
-public class CensusLoader<T> {
+public class CensusLoader<E> {
     public <E> Map<String, IndiaCensusDAO> loadCensusData(CensusAnalyser.Country country, String... csvFilePath) throws CensusAnalyserException {
         if (country.equals(CensusAnalyser.Country.INDIA))
             return this.loadCensusData(IndiaCensusCSV.class, csvFilePath);

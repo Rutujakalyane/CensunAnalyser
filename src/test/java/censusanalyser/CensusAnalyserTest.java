@@ -8,23 +8,22 @@ import exception.CensusAnalyserException;
 import org.junit.Assert;
 import org.junit.Test;
 
+
+
 public class CensusAnalyserTest {
     CensusAnalyser censusAnalyser = new CensusAnalyser();
 
 
     @Test  //1.1
     public void givenIndianCensusCSVFileReturnsCorrectRecords() {
-        try {
-            int numOfRecords = censusAnalyser.loadCensusData(filepaths.INDIA_CENSUS_CSV_FILE_PATH);
-            Assert.assertEquals(29, numOfRecords);
-        } catch (CensusAnalyserException e) {
-        }
+        int numOfRecords = censusAnalyser.loadCensusData(filepaths.INDIA_CENSUS_CSV_FILE_PATH);
+        Assert.assertEquals(29, numOfRecords);
     }
 
     @Test //1.2
     public void givenIndiaCensusData_WithWrongFile_ShouldThrowException() {
         try {
-            censusAnalyser.loadCensusDataWRONG_CENSUS_CSV_FILE_PATH);
+            censusAnalyser.loadCensusData(filepaths.WRONG_CENSUS_CSV_FILE_PATH);
         } catch (CensusAnalyserException e) {
             Assert.assertEquals(CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM, e.type);
         }

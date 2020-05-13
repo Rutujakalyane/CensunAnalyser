@@ -11,22 +11,12 @@ import csv.USCensusCSV;
 import java.util.*;
 
 public class CensusAnalyser {
+        public enum Country {INDIA, US}
 
-    public int loadCensusData(String indiaCensusCsvFilePath) {
-    }
-
-    public enum Country {INDIA, US}
-
-    Map<String, IndiaCensusDAO> censusCSVMap = null;
-    List<IndiaCensusDAO> censusCSVList = null;
-    List<IndiaCensusDAO> stateCSVList = null;
-
-
-    public int loadCensusData(Country country, String... csvFilePath) throws CensusAnalyserException {
-        censusCSVMap = new CensusLoader().loadCensusData(country, csvFilePath);
-        return censusCSVMap.size();
-    }
-    public void isNull(List list) throws CensusAnalyserException {
+        Map<String, IndiaCensusDAO> censusCSVMap = null;
+        List<IndiaCensusDAO> censusCSVList = null;
+        List<IndiaCensusDAO> stateCSVList = null;
+        public void isNull(List list) throws CensusAnalyserException {
             if (list == null || list.size() == 0) {
                 throw new CensusAnalyserException("No Census Data", CensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
             }
@@ -91,5 +81,3 @@ public class CensusAnalyser {
         }
 
     }
-
-
