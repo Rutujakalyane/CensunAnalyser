@@ -16,7 +16,7 @@ public class CensusAnalyserTest {
 
     @Test  //1.1
     public void givenIndianCensusCSVFileReturnsCorrectRecords() {
-        int numOfRecords = censusAnalyser.loadCensusData(filepaths.INDIA_CENSUS_CSV_FILE_PATH);
+        int numOfRecords = CensusAdapter.loadCensusData(filepaths.INDIA_CENSUS_CSV_FILE_PATH);
         Assert.assertEquals(29, numOfRecords);
     }
 
