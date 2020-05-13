@@ -5,6 +5,7 @@ import com.opencsv.bean.CsvToBeanBuilder;
 
 import java.io.Reader;
 import java.util.Iterator;
+import java.util.List;
 
 public class OpenCSVBuilder <E> implements ICSVBuilder {
     @Override
@@ -15,6 +16,12 @@ public class OpenCSVBuilder <E> implements ICSVBuilder {
             throw new CSVBuilderException(e.getMessage(),CSVBuilderException.ExceptionType.WRONG_DELIMITER);
         }
     }
+
+    @Override
+    public List getCSVFileList(Reader reader, Class csvClass) {
+        return null;
+    }
+
     private <E> CsvToBean getCsvToBean(Reader reader, Class className) throws CSVBuilderException{
         try {
             CsvToBeanBuilder<E> csvToBeanBuilder = new CsvToBeanBuilder( reader );
