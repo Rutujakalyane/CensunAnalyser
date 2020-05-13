@@ -70,11 +70,11 @@ public class CensusAnalyser {
             for (int j = 0; j < list.size() - i - 1; j++) {
                 IndiaCensusDAO census1 = (IndiaCensusDAO) list.get(j);
                 IndiaCensusDAO census2 = (IndiaCensusDAO) list.get(j + 1);
-                if (comparing.compare(census1, census2) < 0) {
+                    if (comparing.compare(census1, census2) < 0) {
                     list.set(j, census2);
                     list.set(j + 1, census1);
                 } else {
-                    (comparing.compare(census1, census2) > 0)
+                    (comparing.compare(census1, census2) >0)
                     {
                         list.set(j, census2);
                         list.set(j + 1, census1);
