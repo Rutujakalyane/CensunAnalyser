@@ -11,6 +11,10 @@ import csv.USCensusCSV;
 import java.util.*;
 
 public class CensusAnalyser {
+
+    public int loadCensusData(String indiaCensusCsvFilePath) {
+    }
+
     public enum Country {INDIA, US}
 
     Map<String, IndiaCensusDAO> censusCSVMap = null;
