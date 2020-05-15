@@ -13,12 +13,12 @@ public class USCensusCSV {
         public int population;
 
         @CsvBindByName(column = "TotalArea", required = true)
-        public double totalArea;
+        public int totalArea;
 
         @CsvBindByName(column = "PopulationDensity", required = true)
-        public double density;
+        public int density;
 
-     public USCensusCSV(String state, String stateId, int population, double density, double area) {
+    public USCensusCSV(String state, String stateId, int population, int density, int area) {
         this.state = state;
         this.population = population;
         this.stateId = stateId;
